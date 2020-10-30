@@ -1,0 +1,16 @@
+---
+- name: Create a directory for the mount
+  file:
+    path: "{{ aws_efs_path }}"
+    state: directory
+    mode: "{{ aws_efs_mode }}"
+    owner: "{{ aws_efs_user }}"
+    group: "{{ aws_efs_group }}"
+
+- name: Mount the path
+    mount:
+      path: "{{ aws_efs_path }}"
+      src: "{{ aws_efs_filesystem_id }}"
+      fstype: efs
+      opts: "_netdev,tls,accesspoint={{ aws_efs_access_point_id }}"
+      state: mounted

@@ -1,0 +1,4 @@
+---
+aws_efs_user: root
+aws_efs_group: root
+aws_efs_mode: 755
