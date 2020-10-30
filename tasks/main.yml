@@ -8,9 +8,9 @@
     group: "{{ aws_efs_group }}"
 
 - name: Mount the path
-    mount:
-      path: "{{ aws_efs_path }}"
-      src: "{{ aws_efs_filesystem_id }}"
-      fstype: efs
-      opts: "_netdev,tls,accesspoint={{ aws_efs_access_point_id }}"
-      state: mounted
+  mount:
+    path: "{{ aws_efs_path }}"
+    src: "{{ aws_efs_filesystem_id }}"
+    fstype: efs
+    opts: "_netdev,tls,accesspoint={{ aws_efs_access_point_id }}"
+    state: mounted
