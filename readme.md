@@ -9,7 +9,7 @@ Mounting AWS EFS.
 - `aws_efs_filesystem_id`: The filesystem id
 - `aws_efs_access_point_id`: The access point id
 - `aws_efs_user`: The user used for file permissions
-- `aws_efs_group`: The user used for file permissions
+- `aws_efs_group`: The group used for file permissions
 - `aws_efs_mode`: The mode used for file permissions
 
 ## Example Playbook
