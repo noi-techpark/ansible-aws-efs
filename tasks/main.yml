@@ -1,4 +1,27 @@
 ---
+- name: Install required system packages
+  apt:
+    name: '{{ item }}'
+    state: latest
+  loop:
+    - git
+    - binutils
+
+- name: Git clone efs-utils
+  ansible.builtin.git:
+    repo: 'https://github.com/aws/efs-utils'
+    dest: /tmp/efs-utils
+
+- name: Build amazon-efs-utils
+  ansible.builtin.shell:
+    cmd: ./build-deb.sh
+    chdir: /tmp/efs-utils/
+
+- name: Install amazon-efs-utils
+  apt:
+    name: '/tmp/efs-utils/build/amazon-efs-utils*deb'
+    state: latest
+
 - name: Create a directory for the mount
   file:
     path: "{{ aws_efs_path }}"
