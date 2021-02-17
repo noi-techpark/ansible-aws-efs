@@ -1,6 +1,6 @@
 ---
 - name: Install required system packages
-  apt:
+  ansible.builtin.apt:
     name: '{{ item }}'
     state: latest
   loop:
@@ -18,9 +18,9 @@
     chdir: /tmp/efs-utils/
 
 - name: Install amazon-efs-utils
-  apt:
-    name: '/tmp/efs-utils/build/amazon-efs-utils*deb'
-    state: latest
+  ansible.builtin.shell:
+    cmd: 'apt-get install -y /tmp/efs-utils/build/amazon-efs-utils*deb'
+    warn: false
 
 - name: Create a directory for the mount
   file:
