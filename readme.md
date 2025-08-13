@@ -1,3 +1,5 @@
+[![REUSE Compliance](https://github.com/noi-techpark/ansible-aws-efs/actions/workflows/reuse.yml/badge.svg)](https://github.com/noi-techpark/opendatahub-docs/wiki/REUSE#badges)
+
 Ansible AWS EFS
 ===============
 
